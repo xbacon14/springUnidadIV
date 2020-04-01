@@ -13,7 +13,7 @@ public class DataBaseConfig {
 	@Bean
 	public DataSource getDatasource() {
 		DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
-		dataSourceBuilder.driverClassName("com.mysql.jdbc.Driver");
+		//dataSourceBuilder.driverClassName("com.mysql.jdbc.Driver");
 		dataSourceBuilder.url(
 				"jdbc:mysql://localhost:3306/suscrito_db?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC");
 		dataSourceBuilder.username("root");
