@@ -8,14 +8,18 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Post extends General {
 
-	private String titulo, autor, texto;
+	private String titulo, autor;
 	private LocalDate fecha;
 
+	private String texto;
+
 	@OneToMany(mappedBy = "post")
+	@JsonManagedReference(value = "cp")
 	private List<Comentario> comentarios;
 
 	public List<Comentario> getComentarios() {
@@ -42,20 +46,20 @@ public class Post extends General {
 		this.autor = autor;
 	}
 
-	public String getTexto() {
-		return texto;
-	}
-
-	public void setTexto(String texto) {
-		this.texto = texto;
-	}
-
 	public LocalDate getFecha() {
 		return fecha;
 	}
 
 	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
+	}
+
+	public String getTexto() {
+		return texto;
+	}
+
+	public void setTexto(String texto) {
+		this.texto = texto;
 	}
 
 	@Override

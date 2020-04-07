@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 
 public class Suscrito {
@@ -18,6 +20,7 @@ public class Suscrito {
 	private String nombre;
 
 	@OneToMany(mappedBy = "suscrito")
+	@JsonManagedReference(value = "cs")
 	private List<Comentario> comentarios;
 
 	public List<Comentario> getComentarios() {
