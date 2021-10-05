@@ -8,7 +8,7 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public abstract class General {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	public Long getId() {
@@ -23,7 +23,5 @@ public abstract class General {
 	public String toString() {
 		return "General [id=" + id + "]";
 	}
-	
-	
 
 }

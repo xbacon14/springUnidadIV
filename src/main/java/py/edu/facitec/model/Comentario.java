@@ -19,6 +19,18 @@ public class Comentario extends General {
 	@JsonBackReference(value = "cp")
 	private Post post;
 
+	public Comentario() {
+		super();
+	}
+
+	public Post getPost() {
+		return post;
+	}
+
+	public void setPost(Post post) {
+		this.post = post;
+	}
+
 	public String getTexto() {
 		return texto;
 	}

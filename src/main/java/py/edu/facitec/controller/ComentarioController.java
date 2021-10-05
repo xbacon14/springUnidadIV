@@ -7,13 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import py.edu.facitec.model.Comentario;
+import py.edu.facitec.model.Post;
+import py.edu.facitec.model.Suscrito;
 import py.edu.facitec.repository.ComentarioRepository;
 
 @RestController
@@ -38,9 +42,12 @@ public class ComentarioController {
 	}
 
 	@PostMapping("/guardar")
-	public ResponseEntity<Comentario> guardar(@RequestBody Comentario Comentario) {
-		Comentario = comentarioRepository.save(Comentario);
-		return ResponseEntity.ok(Comentario);
+	public ResponseEntity<Comentario> guardar(@RequestHeader("post") Long post,
+			@RequestHeader("suscrito") Long suscrito, @RequestBody Comentario comentario) {
+		comentario.setSuscrito(new Suscrito(suscrito));
+		comentario.setPost(new Post(post));
+		comentario = comentarioRepository.save(comentario);
+		return ResponseEntity.ok(comentario);
 
 	}
 }

@@ -13,6 +13,15 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
 public class Post extends General {
 
+	public Post(Long id) {
+		super();
+		this.setId(id);
+	}
+
+	public Post() {
+		super();
+	}
+
 	private String titulo, autor;
 	private LocalDate fecha;
 

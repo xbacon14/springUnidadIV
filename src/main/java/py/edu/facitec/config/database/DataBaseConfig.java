@@ -13,9 +13,9 @@ public class DataBaseConfig {
 	@Bean
 	public DataSource getDatasource() {
 		DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
-		//dataSourceBuilder.driverClassName("com.mysql.jdbc.Driver");
+		// dataSourceBuilder.driverClassName("com.mysql.jdbc.Driver");
 		dataSourceBuilder.url(
-				"jdbc:mysql://localhost:3306/suscrito_db?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC");
+				"jdbc:mysql://localhost:3307/suscrito_db?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC");
 		dataSourceBuilder.username("root");
 		dataSourceBuilder.password("84125497");
 		return (DataSource) dataSourceBuilder.build();
